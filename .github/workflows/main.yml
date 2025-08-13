@@ -1,0 +1,52 @@
+name: CI/CD Pipeline
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build:
+    name: Build & Test
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '18'
+
+      - name: Install dependencies (Backend)
+        run: npm install --prefix ./backend
+
+      - name: Run tests (Backend, optional)
+        run: npm test --prefix ./backend
+
+      - name: Build frontend for production (optional)
+        run: npm run build --prefix ./frontend
+
+  deploy:
+    name: Deploy to AWS EC2
+    needs: build
+    runs-on: ubuntu-latest
+    env:
+      SSH_KEY: ${{ secrets.SSH_PRIVATE_KEY }}
+      AWS_HOST: ${{ secrets.AWS_EC2_HOST }}
+      AWS_USER: ${{ secrets.AWS_EC2_USER }}
+    
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      - name: Create SSH key file
+        run: |
+          mkdir -p ~/.ssh/
+          echo "${{ secrets.SSH_PRIVATE_KEY }}" > ~/.ssh/id_rsa
+          chmod 600 ~/.ssh/id_rsa
+          ssh-keyscan ${{ secrets.AWS_EC2_HOST }} >> ~/.ssh/known_hosts
+
+      - name: Run deployment script on EC2
+        run: |
+          ssh -i ~/.ssh/id_rsa -o StrictHostKeyChecking=no ${{ secrets.AWS_EC2_USER }}@${{ secrets.AWS_EC2_HOST }} 'bash -s' < ./deploy.sh
