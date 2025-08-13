@@ -1,6 +1,4 @@
-/* Dashboard.css */
 
-/* --- General Theming & Layout --- */
 .dashboard-container {
     background-color: #F8F7F4;
     min-height: 100vh;
@@ -8,17 +6,17 @@
     color: #333;
 }
 
-/* --- Header & Logo Styling --- */
+
 .dashboard-header {
     background-color: rgba(0, 72, 66, 0.94);
     color: #fff;
     padding: 20px 40px;
-    display: flex; /* Use Flexbox to align items */
-    justify-content: space-between; /* Space out the items */
+    display: flex; 
+    justify-content: space-between; 
     align-items: center;
 }
 
-/* Nav Links Styling (Left) */
+
 .header-nav ul {
     list-style: none;
     margin: 0;
@@ -39,10 +37,10 @@
 }
 
 .header-nav ul li a:hover {
-    color: #C8E6C9; /* A muted green on hover */
+    color: #C8E6C9; 
 }
 
-/* Motto Styling (Center) */
+
 .header-motto {
     text-align: center;
 }
@@ -56,7 +54,7 @@
     letter-spacing: 2px;
 }
 
-/* Logo Styling (Right) */
+
 .header-logo {
     text-align: right;
 }
@@ -66,7 +64,7 @@
     height: auto;
 }
 
-/* --- Motto Animation --- */
+
 @keyframes pulse {
     0% { transform: scale(1); opacity: 1; }
     50% { transform: scale(1.05); opacity: 0.9; }
@@ -77,7 +75,7 @@
     animation: pulse 2s infinite ease-in-out;
 }
 
-/* --- Filter Buttons --- */
+
 .filter-buttons-container {
     background-color: #E8EAE6;
     padding: 20px 0;
@@ -110,7 +108,7 @@
     transform: translateY(-2px);
 }
 
-/* --- Product Grid --- */
+
 .product-grid {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
