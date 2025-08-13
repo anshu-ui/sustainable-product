@@ -1,0 +1,22 @@
+/* Import a clean, modern font like Poppins for consistency */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap');
+
+/* Precise color palette from brownliving.in */
+:root {
+  --color-primary-brown: #3e2723;
+  --color-secondary-brown: #795548;
+  --color-tertiary-brown: #5d4037;
+  --color-background-light: #fbf9f6;
+  --color-border-gray: #e0e0e0;
+}
+
+body {
+  margin: 0;
+  font-family: 'Poppins', sans-serif;
+  background-color: var(--color-background-light);
+  color: var(--color-primary-brown);
+}
+
+* {
+  box-sizing: border-box;
+}
