@@ -1,46 +1,119 @@
+/* Dashboard.css */
+
+/* --- General Theming & Layout --- */
 .dashboard-container {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 2rem 1rem;
+    background-color: #F8F7F4;
+    min-height: 100vh;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: #333;
+}
+
+/* --- Header & Logo Styling --- */
+.dashboard-header {
+    background-color: rgba(0, 72, 66, 0.94);
+    color: #fff;
+    padding: 20px 40px;
+    display: flex; /* Use Flexbox to align items */
+    justify-content: space-between; /* Space out the items */
+    align-items: center;
+}
+
+/* Nav Links Styling (Left) */
+.header-nav ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+}
+
+.header-nav ul li {
+    margin-right: 25px;
+}
+
+.header-nav ul li a {
+    text-decoration: none;
+    color: #fff;
+    font-size: 1rem;
+    font-weight: 500;
+    transition: color 0.3s ease;
+}
+
+.header-nav ul li a:hover {
+    color: #C8E6C9; /* A muted green on hover */
+}
+
+/* Motto Styling (Center) */
+.header-motto {
+    text-align: center;
+}
+
+.logo-tagline {
+    font-size: 0.9rem;
+    font-weight: 500;
+    margin: 0;
+    color: #C8E6C9;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+/* Logo Styling (Right) */
+.header-logo {
+    text-align: right;
+}
+
+.logo-image {
+    width: 180px;
+    height: auto;
+}
+
+/* --- Motto Animation --- */
+@keyframes pulse {
+    0% { transform: scale(1); opacity: 1; }
+    50% { transform: scale(1.05); opacity: 0.9; }
+    100% { transform: scale(1); opacity: 1; }
+}
+
+.animated-motto {
+    animation: pulse 2s infinite ease-in-out;
+}
+
+/* --- Filter Buttons --- */
+.filter-buttons-container {
+    background-color: #E8EAE6;
+    padding: 20px 0;
+    text-align: center;
 }
 
 .dashboard-title {
-  font-size: 2.5rem;
-  font-weight: 700;
-  text-align: center;
-  color: var(--color-primary-brown);
-  margin-bottom: 2rem;
-}
-
-.filter-buttons {
-  display: flex;
-  justify-content: center;
-  flex-wrap: wrap;
-  gap: 1.5rem;
-  margin-bottom: 2.5rem;
+    font-size: 2rem;
+    color: #5D4037;
+    margin-bottom: 20px;
 }
 
 .filter-buttons button {
-  padding: 0.75rem 1.75rem;
-  border: 1px solid var(--color-border-gray);
-  border-radius: 5px;
-  background-color: var(--color-background-light);
-  color: var(--color-secondary-brown);
-  font-weight: 600;
-  text-transform: uppercase;
-  letter-spacing: 0.5px;
-  cursor: pointer;
-  transition: all 0.3s ease;
+    background-color: transparent;
+    color: #5D4037;
+    border: 1px solid #5D4037;
+    padding: 8px 18px;
+    margin: 0 8px;
+    border-radius: 20px;
+    font-size: 0.9rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.3s ease;
 }
 
 .filter-buttons button:hover {
-  background-color: var(--color-secondary-brown);
-  color: var(--color-background-light);
-  border-color: var(--color-secondary-brown);
+    background-color: #4CAF50;
+    color: #fff;
+    border-color: #4CAF50;
+    transform: translateY(-2px);
 }
 
+/* --- Product Grid --- */
 .product-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-  gap: 2rem;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 25px;
+    padding: 40px;
 }

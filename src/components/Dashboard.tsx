@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import ProductCard from './ProductCard';
 import './Dashboard.css';
-
+import logo from '../brown-living-logo.png';
 interface Product {
   _id: string;
   name: string;
@@ -32,13 +32,41 @@ const Dashboard: React.FC = () => {
 
   return (
     <div className="dashboard-container">
-      <h1 className="dashboard-title">Sustainable Products</h1>
-      <div className="filter-buttons">
-        <button onClick={() => setFilter('')}>All</button>
-        <button onClick={() => setFilter('Home Goods')}>Home Goods</button>
-        <button onClick={() => setFilter('Apparel')}>Apparel</button>
-        <button onClick={() => setFilter('Electronics')}>Electronics</button>
+      <header className="dashboard-header">
+        <div className="header-nav">
+          
+          <nav>
+            <ul>
+              <li><a href="#">Home</a></li>
+              <li><a href="#">Shop</a></li>
+              <li><a href="#">Contact</a></li>
+            </ul>
+          </nav>
+        </div>
+        <div className="header-motto">
+          
+          <p className="logo-tagline animated-motto">100% PLASTIC FREE</p>
+        </div>
+        <div className="header-logo">
+       
+          <img
+            src={logo}
+            alt="Brown Living Logo"
+            className="logo-image"
+          />
+        </div>
+      </header>
+      
+      <div className="filter-buttons-container">
+        <h1 className="dashboard-title">Our Sustainable Products</h1>
+        <div className="filter-buttons">
+          <button onClick={() => setFilter('')}>All</button>
+          <button onClick={() => setFilter('Home Goods')}>Home Goods</button>
+          <button onClick={() => setFilter('Apparel')}>Apparel</button>
+          <button onClick={() => setFilter('Electronics')}>Electronics</button>
+        </div>
       </div>
+      
       <div className="product-grid">
         {products.map(product => (
           <ProductCard key={product._id} product={product} />
